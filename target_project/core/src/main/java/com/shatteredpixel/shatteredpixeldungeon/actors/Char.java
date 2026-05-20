@@ -520,13 +520,6 @@ public abstract class Char extends Actor {
 				StatisticsManager.trackAttack(true, effectiveDamage);
 
 				CombatStats stats = StatisticsManager.getCombatStats();
-
-				GLog.i(
-					"Hits: " + stats.totalAttacksHit +
-					" Attempts: " + stats.totalAttacksAttempted +
-					" Damage: " + stats.totalDamageDealt + 
-					" Kills: " + stats.totalKills
-				);
 			}
 
 			if (buff(FireImbue.class) != null)  buff(FireImbue.class).proc(enemy);
