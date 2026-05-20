@@ -2,12 +2,14 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        gradlePluginPortal()
         maven {
             url = uri("https://storage.googleapis.com/r8-releases/raw")
         }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.7.1'
+        classpath 'com.github.spotbugs.snom:spotbugs-gradle-plugin:6.0.26'
     }
 }
 
@@ -27,7 +29,7 @@ allprojects {
         appAndroidTargetSDK = 34
 
         gdxVersion = '1.12.1'
-        gdxControllersVersion = '2.2.4-SNAPSHOT'
+        gdxControllersVersion = '2.2.4'
         robovmVersion = '2.3.21'
     }
     version = appVersionName
@@ -38,4 +40,69 @@ allprojects {
         maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     }
 
+}
+
+apply plugin: 'jacoco'
+
+// Aggregate JaCoCo report combining core + SPD-classes coverage
+// Usage: ./gradlew jacocoAggregateReport
+// HTML: build/reports/jacoco/aggregate/html/index.html
+// XML:  build/reports/jacoco/aggregate/jacocoAggregateReport.xml
+task jacocoAggregateReport(type: JacocoReport, group: 'verification') {
+    dependsOn ':core:test', ':SPD-classes:test', ':core:jacocoTestReport', ':SPD-classes:jacocoTestReport'
+
+    executionData fileTree(project.rootDir) {
+        include '**/build/jacoco/test.exec'
+    }
+
+    reports {
+        xml.required = true
+        html.required = true
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('reports/jacoco/aggregate/html')
+        xml.outputLocation = layout.buildDirectory.file('reports/jacoco/aggregate/jacocoAggregateReport.xml')
+    }
+}
+
+// Defer sourceSets access until after all subprojects are configured
+gradle.projectsEvaluated {
+    def coveredProjects = [project(':core'), project(':SPD-classes')]
+    jacocoAggregateReport.sourceDirectories.from(coveredProjects.collect { it.sourceSets.main.java.srcDirs })
+    jacocoAggregateReport.classDirectories.from(coveredProjects.collect { it.sourceSets.main.output })
+}
+
+// ── SQA master task ───────────────────────────────────────────────────────────
+// Runs all SQA tools in one command:
+//   Tests + JaCoCo coverage  →  build/reports/jacoco/aggregate/html/index.html
+//   PMD complexity analysis  →  core/build/reports/pmd/main.html
+//   SpotBugs bug detection   →  core/build/reports/spotbugs/main/spotbugs.html
+//
+// Usage: ./gradlew sqa
+task sqa(group: 'verification', description: 'Run all SQA tools: tests, JaCoCo, PMD, SpotBugs') {
+    dependsOn(
+        jacocoAggregateReport,
+        ':core:pmdMain',
+        ':SPD-classes:pmdMain',
+        ':core:spotbugsMain',
+        ':SPD-classes:spotbugsMain'
+    )
+
+    doLast {
+        def rootRep = project.rootDir.absolutePath
+        println ""
+        println "═══════════════════════════════════════════════"
+        println "  SQA REPORTS"
+        println "═══════════════════════════════════════════════"
+        println "  Coverage (aggregate):"
+        println "    ${rootRep}/build/reports/jacoco/aggregate/html/index.html"
+        println ""
+        println "  PMD (complexity):"
+        println "    ${rootRep}/core/build/reports/pmd/main.html"
+        println "    ${rootRep}/SPD-classes/build/reports/pmd/main.html"
+        println ""
+        println "  SpotBugs (bug patterns):"
+        println "    ${rootRep}/core/build/reports/spotbugs/main/spotbugs.html"
+        println "    ${rootRep}/SPD-classes/build/reports/spotbugs/main/spotbugs.html"
+        println "═══════════════════════════════════════════════"
+    }
 }

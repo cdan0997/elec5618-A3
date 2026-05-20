@@ -1,4 +1,7 @@
 apply plugin: 'java-library'
+apply plugin: 'jacoco'
+apply plugin: 'com.github.spotbugs'
+apply plugin: 'pmd'
 
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 sourceCompatibility = targetCompatibility = appJavaCompatibility
@@ -6,4 +9,77 @@ sourceCompatibility = targetCompatibility = appJavaCompatibility
 dependencies {
     api project(':SPD-classes')
     implementation project(':services')
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.10.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+    testImplementation 'org.mockito:mockito-core:5.5.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.5.0'
+}
+
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
+jacoco {
+    toolVersion = '0.8.11'
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        html.required = true
+        csv.required = false
+    }
+}
+
+// --- SpotBugs ---
+// Usage: ./gradlew :core:spotbugsMain
+// Report: core/build/reports/spotbugs/main/spotbugs.html
+spotbugs {
+    toolVersion = '4.8.6'
+    ignoreFailures = true
+    excludeFilter = file("${rootProject.projectDir}/config/spotbugs/exclude.xml")
+}
+
+spotbugsMain {
+    reports {
+        html {
+            required = true
+            outputLocation = layout.buildDirectory.file('reports/spotbugs/main/spotbugs.html')
+            stylesheet = 'fancy-hist.xsl'
+        }
+        xml { required = false }
+    }
+}
+
+spotbugsTest {
+    reports {
+        html {
+            required = true
+            outputLocation = layout.buildDirectory.file('reports/spotbugs/test/spotbugs.html')
+            stylesheet = 'fancy-hist.xsl'
+        }
+        xml { required = false }
+    }
+}
+
+// --- PMD ---
+// Usage: ./gradlew :core:pmdMain
+// Report: core/build/reports/pmd/main.html
+pmd {
+    toolVersion = '6.55.0'
+    consoleOutput = true
+    ignoreFailures = true
+    ruleSetFiles = files("${rootProject.projectDir}/config/pmd/ruleset.xml")
+    ruleSets = []
+}
+
+pmdMain {
+    reports {
+        html.required = true
+        xml.required = false
+    }
 }
