@@ -33,6 +33,9 @@ import com.shatteredpixel.shatteredpixeldungeon.items.bags.MagicalHolster;
 import com.shatteredpixel.shatteredpixeldungeon.items.bags.PotionBandolier;
 import com.shatteredpixel.shatteredpixeldungeon.items.bags.ScrollHolder;
 import com.shatteredpixel.shatteredpixeldungeon.items.bags.VelvetPouch;
+import com.shatteredpixel.shatteredpixeldungeon.items.sorting.ItemSortStrategy;
+import com.shatteredpixel.shatteredpixeldungeon.items.sorting.SortByName;
+import com.shatteredpixel.shatteredpixeldungeon.items.sorting.SortByType;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.PixelScene;
@@ -77,14 +80,22 @@ public class InventoryPane extends Component {
 	private Image energy;
 	private BitmapText energyTxt;
 	private RenderedTextBlock promptTxt;
+	private RedButton sortButton;
 
 	private ArrayList<BagButton> bags;
 
 	public static final int WIDTH = 187;
-	public static final int HEIGHT = 82;
+	public static final int HEIGHT = 98;
 
 	private static final int SLOT_WIDTH = 17;
 	private static final int SLOT_HEIGHT = 24;
+	private static final int SORT_BUTTON_HEIGHT = 14;
+
+	private static final ItemSortStrategy[] SORT_STRATEGIES = {
+			new SortByType(),
+			new SortByName()
+	};
+	private static int currentSortStrategy = 0;
 
 	private WndBag.ItemSelector selector;
 
@@ -175,6 +186,18 @@ public class InventoryPane extends Component {
 		promptTxt.hardlight(Window.TITLE_COLOR);
 		add(promptTxt);
 
+		sortButton = new RedButton("") {
+			@Override
+			protected void onClick() {
+				if (lastBag != null && lastBag == Dungeon.hero.belongings.backpack) {
+					lastBag.items.sort(SORT_STRATEGIES[currentSortStrategy]);
+					currentSortStrategy = (currentSortStrategy + 1) % SORT_STRATEGIES.length;
+					updateInventory();
+				}
+			}
+		};
+		add(sortButton);
+
 		bagItems = new ArrayList<>();
 		for (int i = 0; i < 20; i++){
 			InventorySlot btn = new InventoryPaneSlot(null);
@@ -244,8 +267,10 @@ public class InventoryPane extends Component {
 			left = b.right()+1;
 		}
 
+		sortButton.setRect(x + 4, y + 29, 64, SORT_BUTTON_HEIGHT);
+
 		left = x+4;
-		float top = y+4+SLOT_HEIGHT+1;
+		float top = y+4+SLOT_HEIGHT+SORT_BUTTON_HEIGHT+2;
 		for (InventorySlot b : bagItems){
 			b.setRect(left, top, SLOT_WIDTH, SLOT_HEIGHT);
 			left = b.right()+1;
@@ -272,6 +297,7 @@ public class InventoryPane extends Component {
 		goldTxt.alpha(value);
 		energy.alpha(value);
 		energyTxt.alpha(value);
+		sortButton.alpha(value);
 
 		for (BagButton bag : bags){
 			bag.alpha( value );
@@ -338,12 +364,16 @@ public class InventoryPane extends Component {
 			energyTxt.text(Integer.toString(Dungeon.energy));
 			energyTxt.measure();
 			energyTxt.visible = energy.visible = Dungeon.energy > 0;
+
+			sortButton.text("Sort: " + SORT_STRATEGIES[currentSortStrategy].getStrategyName());
+			sortButton.visible = sortButton.active = lastBag == stuff.backpack;
 		} else {
 			promptTxt.text(selector.textPrompt());
 			promptTxt.visible = true;
 
 			goldTxt.visible = gold.visible = false;
 			energyTxt.visible = energy.visible = false;
+			sortButton.visible = sortButton.active = false;
 		}
 
 		ArrayList<Bag> inventBags = stuff.getBags();
@@ -371,11 +401,13 @@ public class InventoryPane extends Component {
 		for (BagButton b : bags){
 			b.enable(lastEnabled);
 		}
+		sortButton.enable(lastEnabled && selector == null && lastBag == stuff.backpack);
 
 		goldTxt.alpha( lastEnabled ? 1f : 0.3f );
 		gold.alpha( lastEnabled ? 1f : 0.3f );
 		energyTxt.alpha( lastEnabled ? 1f : 0.3f );
 		energy.alpha( lastEnabled ? 1f : 0.3f );
+		sortButton.alpha( lastEnabled ? 1f : 0.3f );
 
 		layout();
 	}

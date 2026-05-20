@@ -31,6 +31,10 @@ import com.shatteredpixel.shatteredpixeldungeon.items.bags.MagicalHolster;
 import com.shatteredpixel.shatteredpixeldungeon.items.bags.PotionBandolier;
 import com.shatteredpixel.shatteredpixeldungeon.items.bags.ScrollHolder;
 import com.shatteredpixel.shatteredpixeldungeon.items.bags.VelvetPouch;
+import com.shatteredpixel.shatteredpixeldungeon.items.sorting.ItemSortStrategy;
+import com.shatteredpixel.shatteredpixeldungeon.items.sorting.SortByType;
+import com.shatteredpixel.shatteredpixeldungeon.items.sorting.SortByName;
+import com.shatteredpixel.shatteredpixeldungeon.ui.RedButton;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.PixelScene;
@@ -52,13 +56,19 @@ import com.watabou.noosa.Image;
 import com.watabou.utils.PointF;
 
 public class WndBag extends WndTabbed {
-	
+
 	//only one bag window can appear at a time
 	public static Window INSTANCE;
 
+	private static final ItemSortStrategy[] STRATEGIES = {
+			new SortByType(),
+			new SortByName()
+	};
+	private static int currentStrategyIndex = 0;
+
 	protected static final int COLS_P   = 5;
 	protected static final int COLS_L   = 5;
-	
+
 	protected static int SLOT_WIDTH_P   = 28;
 	protected static int SLOT_WIDTH_L   = 28;
 
@@ -66,9 +76,11 @@ public class WndBag extends WndTabbed {
 	protected static int SLOT_HEIGHT_L	= 28;
 
 	protected static final int SLOT_MARGIN	= 1;
-	
+
 	protected static final int TITLE_HEIGHT	= 14;
-	
+	private static final int SORT_BUTTON_HEIGHT = 14;
+	private static final int SORT_BUTTON_MARGIN = 2;
+
 	private ItemSelector selector;
 
 	private int nCols;
@@ -80,7 +92,8 @@ public class WndBag extends WndTabbed {
 	protected int count;
 	protected int col;
 	protected int row;
-	
+	protected int itemsTop;
+
 	private static Bag lastBag;
 
 	public WndBag( Bag bag ) {
@@ -88,16 +101,16 @@ public class WndBag extends WndTabbed {
 	}
 
 	public WndBag( Bag bag, ItemSelector selector ) {
-		
+
 		super();
-		
+
 		if( INSTANCE != null ){
 			INSTANCE.hide();
 		}
 		INSTANCE = this;
-		
+
 		this.selector = selector;
-		
+
 		lastBag = bag;
 
 		slotWidth = PixelScene.landscape() ? SLOT_WIDTH_L : SLOT_WIDTH_P;
@@ -107,7 +120,9 @@ public class WndBag extends WndTabbed {
 		nRows = (int)Math.ceil(25/(float)nCols); //we expect to lay out 25 slots in all cases
 
 		int windowWidth = slotWidth * nCols + SLOT_MARGIN * (nCols - 1);
-		int windowHeight = TITLE_HEIGHT + slotHeight * nRows + SLOT_MARGIN * (nRows - 1);
+		int sortControlsHeight = hasSortControls(bag) ? SORT_BUTTON_HEIGHT + SORT_BUTTON_MARGIN : 0;
+		itemsTop = TITLE_HEIGHT + sortControlsHeight;
+		int windowHeight = itemsTop + slotHeight * nRows + SLOT_MARGIN * (nRows - 1);
 
 		if (PixelScene.landscape()){
 			while (slotHeight >= 24 && (windowHeight + 20 + chrome.marginTop()) > PixelScene.uiCamera.height){
@@ -122,7 +137,7 @@ public class WndBag extends WndTabbed {
 		}
 
 		placeTitle( bag, windowWidth );
-		
+
 		placeItems( bag );
 
 		resize( windowWidth, windowHeight );
@@ -138,17 +153,17 @@ public class WndBag extends WndTabbed {
 
 		layoutTabs();
 	}
-	
+
 	public static WndBag lastBag( ItemSelector selector ) {
-		
+
 		if (lastBag != null && Dungeon.hero.belongings.backpack.contains( lastBag )) {
-			
+
 			return new WndBag( lastBag, selector );
-			
+
 		} else {
-			
+
 			return new WndBag( Dungeon.hero.belongings.backpack, selector );
-			
+
 		}
 	}
 
@@ -165,9 +180,8 @@ public class WndBag extends WndTabbed {
 
 		return lastBag( selector );
 	}
-	
-	protected void placeTitle( Bag bag, int width ){
 
+	protected void placeTitle( Bag bag, int width ){
 		float titleWidth;
 		if (Dungeon.energy == 0) {
 			ItemSprite gold = new ItemSprite(ItemSpriteSheet.GOLD, null);
@@ -231,10 +245,33 @@ public class WndBag extends WndTabbed {
 		);
 		PixelScene.align(txtTitle);
 		add( txtTitle );
+		if (hasSortControls(bag)) {
+			RedButton sortBtn = new RedButton("Sort: " + STRATEGIES[currentStrategyIndex].getStrategyName()) {
+				@Override
+				protected void onClick() {
+					bag.items.sort(STRATEGIES[currentStrategyIndex]);
+					currentStrategyIndex = (currentStrategyIndex + 1) % STRATEGIES.length;
+
+					WndBag.this.hide();
+					if (Game.scene() instanceof GameScene) {
+						GameScene.show(new WndBag(bag, selector));
+					} else {
+						Game.scene().addToFront(new WndBag(bag, selector));
+					}
+				}
+			};
+
+			sortBtn.setRect(0, TITLE_HEIGHT, width, SORT_BUTTON_HEIGHT);
+			add(sortBtn);
+		}
 	}
-	
+
+	private boolean hasSortControls( Bag bag ){
+		return selector == null && bag == Dungeon.hero.belongings.backpack;
+	}
+
 	protected void placeItems( Bag container ) {
-		
+
 		// Equipped items
 		Belongings stuff = Dungeon.hero.belongings;
 		placeItem( stuff.weapon != null ? stuff.weapon : new Placeholder( ItemSpriteSheet.WEAPON_HOLDER ) );
@@ -263,19 +300,19 @@ public class WndBag extends WndTabbed {
 				count++;
 			}
 		}
-		
+
 		// Free Space
 		while ((count - equipped) < container.capacity()) {
 			placeItem( null );
 		}
 	}
-	
+
 	protected void placeItem( final Item item ) {
 
 		count++;
-		
+
 		int x = col * (slotWidth + SLOT_MARGIN);
-		int y = TITLE_HEIGHT + row * (slotHeight + SLOT_MARGIN);
+		int y = itemsTop + row * (slotHeight + SLOT_MARGIN);
 
 		InventorySlot slot = new InventorySlot( item ){
 			@Override
@@ -348,7 +385,7 @@ public class WndBag extends WndTabbed {
 		if (item == null || (selector != null && !selector.itemSelectable(item))){
 			slot.enable(false);
 		}
-		
+
 		if (++col >= nCols) {
 			col = 0;
 			row++;
@@ -365,7 +402,7 @@ public class WndBag extends WndTabbed {
 			return super.onSignal(event);
 		}
 	}
-	
+
 	@Override
 	public void onBackPressed() {
 		if (selector != null) {
@@ -373,7 +410,7 @@ public class WndBag extends WndTabbed {
 		}
 		super.onBackPressed();
 	}
-	
+
 	@Override
 	protected void onClick( Tab tab ) {
 		hide();
@@ -384,7 +421,7 @@ public class WndBag extends WndTabbed {
 			Game.scene().addToFront(w);
 		}
 	}
-	
+
 	@Override
 	public void hide() {
 		super.hide();
@@ -392,12 +429,12 @@ public class WndBag extends WndTabbed {
 			INSTANCE = null;
 		}
 	}
-	
+
 	@Override
 	protected int tabHeight() {
 		return 20;
 	}
-	
+
 	private Image icon( Bag bag ) {
 		if (bag instanceof VelvetPouch) {
 			return Icons.get( Icons.SEED_POUCH );
@@ -411,15 +448,15 @@ public class WndBag extends WndTabbed {
 			return Icons.get( Icons.BACKPACK );
 		}
 	}
-	
+
 	private class BagTab extends IconTab {
 
 		private Bag bag;
 		private int index;
-		
+
 		public BagTab( Bag bag, int index ) {
 			super( icon(bag) );
-			
+
 			this.bag = bag;
 			this.index = index;
 		}
@@ -445,7 +482,7 @@ public class WndBag extends WndTabbed {
 			return Messages.titleCase(bag.name());
 		}
 	}
-	
+
 	public static class Placeholder extends Item {
 
 		public Placeholder(int image ) {
@@ -461,7 +498,7 @@ public class WndBag extends WndTabbed {
 		public boolean isIdentified() {
 			return true;
 		}
-		
+
 		@Override
 		public boolean isEquipped( Hero hero ) {
 			return true;
