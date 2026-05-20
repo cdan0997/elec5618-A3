@@ -1,0 +1,87 @@
+/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:5: Warning: Attribute targetSandboxVersion is only used in API level 26 and higher (current min is 14) [UnusedAttribute]
+ android:targetSandboxVersion="2"
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:30: Warning: Attribute appCategory is only used in API level 26 and higher (current min is 14) [UnusedAttribute]
+  android:appCategory="game"
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:31: Warning: Attribute isGame is only used in API level 21 and higher (current min is 14) [UnusedAttribute]
+  android:isGame="true"
+  ~~~~~~~~~~~~~~~~~~~~~
+/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:32: Warning: Attribute resizeableActivity is only used in API level 24 and higher (current min is 14) [UnusedAttribute]
+  android:resizeableActivity="true"
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:34: Warning: Attribute fullBackupOnly is only used in API level 21 and higher (current min is 14) [UnusedAttribute]
+  android:fullBackupOnly="true"
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedAttribute":
+   This check finds attributes set in XML files that were introduced in a
+   version newer than the oldest version targeted by your application (with
+   the minSdkVersion attribute).
+
+   This is not an error; the application will simply ignore the attribute.
+   However, if the attribute is important to the appearance or functionality
+   of your application, you should consider finding an alternative way to
+   achieve the same result with only available attributes, and then you can
+   optionally create a copy of the layout in a layout-vNN folder which will be
+   used on API NN or higher where you can take advantage of the newer
+   attribute.
+
+   Note: This check does not only apply to attributes. For example, some tags
+   can be unused too, such as the new <tag> element in layouts introduced in
+   API 21.
+
+/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/build.gradle:66: Warning: A newer version of com.badlogicgames.gdx:gdx-platform than 1.11.0 is available: 1.12.1 [GradleDependency]
+    natives "com.badlogicgames.gdx:gdx-platform:1.11.0:natives-armeabi-v7a"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/build.gradle:67: Warning: A newer version of com.badlogicgames.gdx:gdx-platform than 1.11.0 is available: 1.12.1 [GradleDependency]
+    natives "com.badlogicgames.gdx:gdx-platform:1.11.0:natives-arm64-v8a"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/build.gradle:68: Warning: A newer version of com.badlogicgames.gdx:gdx-platform than 1.11.0 is available: 1.12.1 [GradleDependency]
+    natives "com.badlogicgames.gdx:gdx-platform:1.11.0:natives-x86"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/build.gradle:69: Warning: A newer version of com.badlogicgames.gdx:gdx-platform than 1.11.0 is available: 1.12.1 [GradleDependency]
+    natives "com.badlogicgames.gdx:gdx-platform:1.11.0:natives-x86_64"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/build.gradle:71: Warning: A newer version of com.badlogicgames.gdx:gdx-freetype-platform than 1.11.0 is available: 1.12.1 [GradleDependency]
+    natives "com.badlogicgames.gdx:gdx-freetype-platform:1.11.0:natives-armeabi-v7a"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/build.gradle:72: Warning: A newer version of com.badlogicgames.gdx:gdx-freetype-platform than 1.11.0 is available: 1.12.1 [GradleDependency]
+    natives "com.badlogicgames.gdx:gdx-freetype-platform:1.11.0:natives-arm64-v8a"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/build.gradle:73: Warning: A newer version of com.badlogicgames.gdx:gdx-freetype-platform than 1.11.0 is available: 1.12.1 [GradleDependency]
+    natives "com.badlogicgames.gdx:gdx-freetype-platform:1.11.0:natives-x86"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/build.gradle:74: Warning: A newer version of com.badlogicgames.gdx:gdx-freetype-platform than 1.11.0 is available: 1.12.1 [GradleDependency]
+    natives "com.badlogicgames.gdx:gdx-freetype-platform:1.11.0:natives-x86_64"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:38: Warning: Should not restrict activity to fixed orientation. This may not be suitable for different form factors, causing the app to be letterboxed. [DiscouragedApi]
+   android:screenOrientation="nosensor"
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "DiscouragedApi":
+   Discouraged APIs are allowed and are not deprecated, but they may be unfit
+   for common use (e.g. due to slow performance or subtle behavior).
+
+/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/java/com/shatteredpixel/shatteredpixeldungeon/android/AndroidBackupHandler.java:46: Warning: Unnecessary; SDK_INT is always >= 14 [ObsoleteSdkInt]
+ @TargetApi(14)
+ ~~~~~~~~~~~~~~
+
+   Explanation for issues of type "ObsoleteSdkInt":
+   This check flags version checks that are not necessary, because the
+   minSdkVersion (or surrounding known API level) is already at least as high
+   as the version checked for.
+
+   Similarly, it also looks for resources in -vNN folders, such as values-v14
+   where the version qualifier is less than or equal to the minSdkVersion,
+   where the contents should be merged into the best folder.
+
+0 errors, 15 warnings

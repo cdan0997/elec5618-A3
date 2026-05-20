@@ -20,7 +20,6 @@
  */
 
 package com.shatteredpixel.shatteredpixeldungeon.windows;
-
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Badges;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
@@ -98,6 +97,7 @@ public class WndJournal extends WndTabbed {
 	private NotesTab notesTab;
 	private CatalogTab catalogTab;
 	private BadgesTab badgesTab;
+
 	
 	public static int last_index = 0;
 
@@ -138,6 +138,7 @@ public class WndJournal extends WndTabbed {
 		badgesTab.setRect(0, 0, width, height);
 		badgesTab.updateList();
 		
+
 		Tab[] tabs = {
 				new IconTab( Icons.JOURNAL.get() ) {
 					protected void select( boolean value ) {
@@ -562,7 +563,7 @@ public class WndJournal extends WndTabbed {
 		}
 		
 	}
-	
+
 	public static class CatalogTab extends Component{
 		
 		private RedButton[] itemButtons;

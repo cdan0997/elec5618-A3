@@ -1,0 +1,18 @@
+<lint-module
+    format="1"
+    dir="/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android"
+    name=":android"
+    type="APP"
+    maven="target_project:android:3.0.2"
+    agpVersion="8.7.1"
+    buildFolder="build"
+    bootClassPath="/Users/charlenechong/Library/Android/sdk/platforms/android-34/android.jar:/Users/charlenechong/Library/Android/sdk/build-tools/34.0.0/core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-34">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="debug"/>
+</lint-module>

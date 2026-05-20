@@ -1,0 +1,3 @@
+-keep class com.shatteredpixel.shatteredpixeldungeon.android.AndroidBackupHandler { <init>(); }
+-keep class com.shatteredpixel.shatteredpixeldungeon.android.AndroidLauncher { <init>(); }
+-keep class com.shatteredpixel.shatteredpixeldungeon.android.AndroidMissingNativesHandler { <init>(); }

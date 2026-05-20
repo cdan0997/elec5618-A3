@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.7.1" type="partial_results">
+    <map id="UnsafeIntentLaunch">
+            <map id="unprotected">
+                <entry
+                    name="com.shatteredpixel.shatteredpixeldungeon.android.AndroidLauncher"
+                    boolean="true"/>
+            </map>
+    </map>
+    <map id="UnusedResources">
+        <entry
+            name="model"
+            string="mipmap[ic_launcher(U),ic_launcher_background(U),ic_launcher_foreground(U),ic_launcher_monochrome(U)];0^1^2^3;;;"/>
+    </map>
+
+</incidents>

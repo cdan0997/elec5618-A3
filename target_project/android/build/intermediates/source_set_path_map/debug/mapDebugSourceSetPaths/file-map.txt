@@ -1,0 +1,7 @@
+com.shatteredpixel.shatteredpixeldungeon.android-pngs-0 /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/build/generated/res/pngs/debug
+com.shatteredpixel.shatteredpixeldungeon.android-resValues-1 /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/build/generated/res/resValues/debug
+com.shatteredpixel.shatteredpixeldungeon.android-packageDebugResources-2 /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+com.shatteredpixel.shatteredpixeldungeon.android-packageDebugResources-3 /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+com.shatteredpixel.shatteredpixeldungeon.android-debug-4 /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/build/intermediates/merged_res/debug/mergeDebugResources
+com.shatteredpixel.shatteredpixeldungeon.android-debug-5 /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/debug/res
+com.shatteredpixel.shatteredpixeldungeon.android-main-6 /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/res

@@ -21,6 +21,8 @@
 
 package com.shatteredpixel.shatteredpixeldungeon.actors;
 
+import com.shatteredpixel.shatteredpixeldungeon.stats.CombatStats;
+import com.shatteredpixel.shatteredpixeldungeon.stats.StatisticsManager;
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Badges;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
@@ -514,6 +516,18 @@ public abstract class Char extends Actor {
 			}
 
 			enemy.damage( effectiveDamage, this );
+			if (this == Dungeon.hero) {
+				StatisticsManager.trackAttack(true, effectiveDamage);
+
+				CombatStats stats = StatisticsManager.getCombatStats();
+
+				GLog.i(
+					"Hits: " + stats.totalAttacksHit +
+					" Attempts: " + stats.totalAttacksAttempted +
+					" Damage: " + stats.totalDamageDealt + 
+					" Kills: " + stats.totalKills
+				);
+			}
 
 			if (buff(FireImbue.class) != null)  buff(FireImbue.class).proc(enemy);
 			if (buff(FrostImbue.class) != null) buff(FrostImbue.class).proc(enemy);
@@ -578,6 +592,7 @@ public abstract class Char extends Actor {
 					GLog.n( Messages.capitalize(Messages.get(Char.class, "kill", name())) );
 					
 				} else if (this == Dungeon.hero) {
+					StatisticsManager.trackKill();
 					GLog.i( Messages.capitalize(Messages.get(Char.class, "defeat", enemy.name())) );
 				}
 			}
@@ -592,6 +607,8 @@ public abstract class Char extends Actor {
 				Sample.INSTANCE.play(Assets.Sounds.MISS);
 			}
 			
+			StatisticsManager.trackAttack(false, 0);
+			StatisticsManager.trackEvade();
 			return false;
 			
 		}

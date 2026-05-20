@@ -1,0 +1,90 @@
+[
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-xhdpi_ic_launcher_monochrome.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-xhdpi/ic_launcher_monochrome.png"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-ldpi_ic_launcher.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-ldpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-xhdpi_ic_launcher_background.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-xhdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-mdpi_ic_launcher_background.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-mdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-hdpi_ic_launcher_background.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-hdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-mdpi_ic_launcher_monochrome.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-mdpi/ic_launcher_monochrome.png"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-xxhdpi_ic_launcher_background.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-xxhdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-hdpi_ic_launcher_monochrome.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-hdpi/ic_launcher_monochrome.png"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-xxxhdpi_ic_launcher_monochrome.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-xxxhdpi/ic_launcher_monochrome.png"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-xxxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-xxhdpi_ic_launcher_monochrome.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-xxhdpi/ic_launcher_monochrome.png"
+    },
+    {
+        "merged": "com.shatteredpixel.shatteredpixeldungeon.android-release-5:/mipmap-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "com.shatteredpixel.shatteredpixeldungeon.android-main-6:/mipmap-xxxhdpi/ic_launcher_background.png"
+    }
+]
