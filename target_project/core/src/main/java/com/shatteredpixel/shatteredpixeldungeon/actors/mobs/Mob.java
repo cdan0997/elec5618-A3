@@ -253,6 +253,7 @@ public abstract class Mob extends Char {
 			return true;
 		}
 
+
 		boolean result = state.act( enemyInFOV, justAlerted );
 
 		//for updating hero FOV
