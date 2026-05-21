@@ -95,6 +95,8 @@ import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
 import com.watabou.utils.Reflection;
 
+import com.shatteredpixel.shatteredpixeldungeon.logging.MobLogger;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -258,6 +260,9 @@ public abstract class Mob extends Char {
 			Dungeon.level.updateFieldOfView( this, fieldOfView );
 			GameScene.updateFog(pos, viewDistance+(int)Math.ceil(speed()));
 		}
+
+		MobLogger.log("Mob acted: " + this.name());
+		System.out.println("Current logs: " + MobLogger.getLogCount());
 
 		return result;
 	}
@@ -867,6 +872,8 @@ public abstract class Mob extends Char {
 	
 	@Override
 	public void die( Object cause ) {
+
+		MobLogger.log("Mob died: " + this.name());
 
 		if (cause == Chasm.class){
 			//50% chance to round up, 50% to round down
