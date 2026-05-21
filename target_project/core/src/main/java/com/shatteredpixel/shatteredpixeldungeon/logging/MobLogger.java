@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
+
 public class MobLogger {
 
     private static final String LOG_FILE = "mob_log.txt";

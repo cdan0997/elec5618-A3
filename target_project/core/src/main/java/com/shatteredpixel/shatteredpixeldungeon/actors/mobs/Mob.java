@@ -288,6 +288,7 @@ public abstract class Mob extends Char {
 				return source;
 			}
 		}
+
 		
 		//if we are an alert enemy, auto-hunt a target that is affected by aggression, even another enemy
 		if ((alignment == Alignment.ENEMY || buff(Amok.class) != null ) && state != PASSIVE && state != SLEEPING) {
