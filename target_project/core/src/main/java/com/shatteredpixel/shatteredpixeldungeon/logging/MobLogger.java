@@ -12,15 +12,12 @@ public class MobLogger {
     private static int logCount = 0;
 
     public static void log(String message) {
-
         long startTime = System.nanoTime();
 
-        try {
-            FileWriter fw = new FileWriter(LOG_FILE, true);
-            PrintWriter pw = new PrintWriter(fw);
+        try (FileWriter fw = new FileWriter(LOG_FILE, true);
+             PrintWriter pw = new PrintWriter(fw)) {
 
             pw.println(message);
-            pw.close();
 
             logCount++;
 
