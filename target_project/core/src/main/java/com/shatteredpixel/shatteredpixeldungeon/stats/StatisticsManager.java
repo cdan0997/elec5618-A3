@@ -21,9 +21,6 @@ public class StatisticsManager {
 
     }
 
-    public static void trackEvade() {
-        currentRunStats.totalAttacksEvaded++;
-    }
     
     public static void reset() {
         currentRunStats.reset();

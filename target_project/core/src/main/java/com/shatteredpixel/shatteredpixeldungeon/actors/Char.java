@@ -21,7 +21,6 @@
 
 package com.shatteredpixel.shatteredpixeldungeon.actors;
 
-import com.shatteredpixel.shatteredpixeldungeon.stats.CombatStats;
 import com.shatteredpixel.shatteredpixeldungeon.stats.StatisticsManager;
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Badges;
@@ -518,8 +517,6 @@ public abstract class Char extends Actor {
 			enemy.damage( effectiveDamage, this );
 			if (this == Dungeon.hero) {
 				StatisticsManager.trackAttack(true, effectiveDamage);
-
-				CombatStats stats = StatisticsManager.getCombatStats();
 			}
 
 			if (buff(FireImbue.class) != null)  buff(FireImbue.class).proc(enemy);
@@ -601,7 +598,6 @@ public abstract class Char extends Actor {
 			}
 			
 			StatisticsManager.trackAttack(false, 0);
-			StatisticsManager.trackEvade();
 			return false;
 			
 		}

@@ -21,7 +21,6 @@ class CombatStatsTest {
         assertEquals(0, stats.totalDamageDealt);
         assertEquals(0, stats.totalAttacksAttempted);
         assertEquals(0, stats.totalAttacksHit);
-        assertEquals(0, stats.totalAttacksEvaded);
         assertEquals(0, stats.totalKills);
         assertEquals(0, stats.totalDamageTaken);
     }
@@ -83,7 +82,6 @@ class CombatStatsTest {
         stats.totalDamageDealt     = 100;
         stats.totalAttacksAttempted = 20;
         stats.totalAttacksHit      = 15;
-        stats.totalAttacksEvaded   = 3;
         stats.totalKills           = 7;
         stats.totalDamageTaken     = 50;
 
@@ -92,7 +90,6 @@ class CombatStatsTest {
         assertEquals(0, stats.totalDamageDealt);
         assertEquals(0, stats.totalAttacksAttempted);
         assertEquals(0, stats.totalAttacksHit);
-        assertEquals(0, stats.totalAttacksEvaded);
         assertEquals(0, stats.totalKills);
         assertEquals(0, stats.totalDamageTaken);
     }

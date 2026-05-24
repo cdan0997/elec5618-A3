@@ -21,8 +21,6 @@
 
 package com.shatteredpixel.shatteredpixeldungeon.scenes;
 import com.watabou.noosa.BitmapText;
-import com.shatteredpixel.shatteredpixeldungeon.scenes.PixelScene;
-import com.shatteredpixel.shatteredpixeldungeon.ui.RenderedTextBlock;
 import com.shatteredpixel.shatteredpixeldungeon.stats.CombatStats;
 import com.shatteredpixel.shatteredpixeldungeon.stats.StatisticsManager;
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
