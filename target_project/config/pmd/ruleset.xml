@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<ruleset name="ELEC5618 PMD Ruleset"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0
+             https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+
+    <description>
+        PMD ruleset for ELEC5618 Assignment 3.
+        Focuses on Cyclomatic Complexity (Maintainability) and common error-prone patterns.
+    </description>
+
+    <!-- ── Design / Complexity ─────────────────────────────────────────────── -->
+    <!-- Key metric for Inventory Sorting SQA: proves the Strategy Pattern
+         reduces per-method complexity compared to the original switch/if chain. -->
+    <rule ref="category/java/design.xml/CyclomaticComplexity">
+        <properties>
+            <!-- Flag methods with complexity > 10 (industry standard threshold) -->
+            <property name="methodReportLevel" value="10"/>
+            <property name="classReportLevel"  value="80"/>
+        </properties>
+    </rule>
+
+    <rule ref="category/java/design.xml/NPathComplexity">
+        <properties>
+            <property name="reportLevel" value="200"/>
+        </properties>
+    </rule>
+
+    <rule ref="category/java/design.xml/TooManyMethods">
+        <properties>
+            <property name="maxmethods" value="20"/>
+        </properties>
+    </rule>
+
+    <rule ref="category/java/design.xml/ExcessiveMethodLength">
+        <properties>
+            <property name="minimum" value="60"/>
+        </properties>
+    </rule>
+
+    <!-- ── Best Practices ─────────────────────────────────────────────────── -->
+    <rule ref="category/java/bestpractices.xml/UnusedLocalVariable"/>
+    <rule ref="category/java/bestpractices.xml/UnusedPrivateField"/>
+    <rule ref="category/java/bestpractices.xml/UnusedPrivateMethod"/>
+    <rule ref="category/java/bestpractices.xml/AvoidPrintStackTrace"/>
+    <rule ref="category/java/bestpractices.xml/SystemPrintln"/>
+
+    <!-- ── Error Prone ─────────────────────────────────────────────────────── -->
+    <rule ref="category/java/errorprone.xml/EmptyCatchBlock"/>
+    <rule ref="category/java/errorprone.xml/AvoidDecimalLiteralsInBigDecimalConstructor"/>
+    <rule ref="category/java/errorprone.xml/NullAssignment"/>
+
+    <!-- ── Code Style ──────────────────────────────────────────────────────── -->
+    <rule ref="category/java/codestyle.xml/UnnecessaryReturn"/>
+    <rule ref="category/java/codestyle.xml/UnnecessaryFullyQualifiedName"/>
+
+</ruleset>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    SpotBugs exclusion filter for Shattered Pixel Dungeon (ELEC5618 A3).
+    Suppresses known false positives from LibGDX patterns and legacy game code.
+-->
+<FindBugsFilter>
+
+    <!-- LibGDX uses public fields extensively as part of its design (e.g. x, y, width) -->
+    <Match>
+        <Bug pattern="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD"/>
+    </Match>
+
+    <!-- LibGDX scene2d / game loop fields are set via reflection or framework callbacks -->
+    <Match>
+        <Bug pattern="UWF_UNWRITTEN_PUBLIC_OR_PROTECTED_FIELD"/>
+    </Match>
+
+    <!-- Serialisation fields in Bundle/JSON classes are intentionally null-initialised -->
+    <Match>
+        <Bug pattern="NP_UNWRITTEN_FIELD"/>
+    </Match>
+
+    <!-- Game assets and static singletons are intentionally non-final -->
+    <Match>
+        <Bug pattern="MS_SHOULD_BE_FINAL"/>
+    </Match>
+
+    <!-- LibGDX Gdx.app logger is a known pattern; suppress redundant null checks -->
+    <Match>
+        <Class name="~.*\.ShatteredPixelDungeon"/>
+        <Bug pattern="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD"/>
+    </Match>
+
+</FindBugsFilter>

@@ -20,7 +20,8 @@
  */
 
 package com.shatteredpixel.shatteredpixeldungeon.actors.hero;
-
+import com.shatteredpixel.shatteredpixeldungeon.stats.CombatStats;
+import com.shatteredpixel.shatteredpixeldungeon.stats.StatisticsManager;
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Badges;
 import com.shatteredpixel.shatteredpixeldungeon.Bones;
@@ -1629,6 +1630,8 @@ public class Hero extends Char {
 				damageInterrupt = true;
 			}
 		}
+		StatisticsManager.trackDamageTaken(effectiveDamage);
+		GLog.i("Damage Taken: " + effectiveDamage + " Total: " + StatisticsManager.getCombatStats().totalDamageTaken);
 	}
 	
 	public void checkVisibleMobs() {

@@ -20,7 +20,9 @@
  */
 
 package com.shatteredpixel.shatteredpixeldungeon.scenes;
-
+import com.watabou.noosa.BitmapText;
+import com.shatteredpixel.shatteredpixeldungeon.stats.CombatStats;
+import com.shatteredpixel.shatteredpixeldungeon.stats.StatisticsManager;
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Badges;
 import com.shatteredpixel.shatteredpixeldungeon.Challenges;
@@ -204,6 +206,9 @@ public class GameScene extends PixelScene {
 	private ActionIndicator action;
 	private ResumeIndicator resume;
 
+	private BitmapText statsAcc, statsDmg, statsTaken, statsKills;
+
+
 	{
 		inGameScene = true;
 	}
@@ -370,6 +375,38 @@ public class GameScene extends PixelScene {
 		status.camera = uiCamera;
 		status.setRect(0, uiSize > 0 ? uiCamera.height-39 : 0, uiCamera.width, 0 );
 		add(status);
+
+		statsAcc = new BitmapText("ACCURACY: 0%", PixelScene.pixelFont);
+		statsAcc.camera = uiCamera;
+		statsAcc.hardlight(0xFFFFFF);
+		statsAcc.measure();
+		statsAcc.x = 2;
+		statsAcc.y = 2;
+		add(statsAcc);
+
+		statsDmg = new BitmapText("DAMAGE DEALT: 0", PixelScene.pixelFont);
+		statsDmg.camera = uiCamera;
+		statsDmg.hardlight(0xFFFFFF);
+		statsDmg.measure();
+		statsDmg.x = 2;
+		statsDmg.y = 10;
+		add(statsDmg);
+
+		statsTaken = new BitmapText("DAMAGE TAKEN: 0", PixelScene.pixelFont);
+		statsTaken.camera = uiCamera;
+		statsTaken.hardlight(0xFFFFFF);
+		statsTaken.measure();
+		statsTaken.x = 2;
+		statsTaken.y = 18;
+		add(statsTaken);
+
+		statsKills = new BitmapText("KILLS: 0", PixelScene.pixelFont);
+		statsKills.camera = uiCamera;
+		statsKills.hardlight(0xFFFFFF);
+		statsKills.measure();
+		statsKills.x = 2;
+		statsKills.y = 26;
+		add(statsKills);
 
 		boss = new BossHealthBar();
 		boss.camera = uiCamera;
@@ -662,6 +699,19 @@ public class GameScene extends PixelScene {
 		if (actorThread != null && actorThread.isAlive()){
 			Actor.keepActorThreadAlive = false;
 			actorThread.interrupt();
+		}
+	}
+
+	public static void updateStatsDisplay() {
+		if (scene != null && scene.statsAcc != null) {
+			CombatStats stats = StatisticsManager.getCombatStats();
+			int acc = stats.totalAttacksAttempted > 0 
+				? (int)(100f * stats.totalAttacksHit / stats.totalAttacksAttempted) 
+				: 0;
+			scene.statsAcc.text("ACCURACY: " + acc + "%"); scene.statsAcc.measure();
+			scene.statsDmg.text("DAMAGE DEALT: " + stats.totalDamageDealt); scene.statsDmg.measure();
+			scene.statsTaken.text("DAMAGE TAKEN: " + stats.totalDamageTaken); scene.statsTaken.measure();
+			scene.statsKills.text("KILLS: " + stats.totalKills); scene.statsKills.measure();
 		}
 	}
 

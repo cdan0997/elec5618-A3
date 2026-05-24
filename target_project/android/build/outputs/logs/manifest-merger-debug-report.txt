@@ -1,0 +1,122 @@
+-- Merging decision tree log ---
+application
+INJECTED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:26:2-49:16
+INJECTED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:26:2-49:16
+MERGED from [com.badlogicgames.gdx-controllers:gdx-controllers-android:2.2.3] /Users/charlenechong/.gradle/caches/8.10.2/transforms/0fa68c644fc0d7c60df7aeba1eb910ab/transformed/gdx-controllers-android-2.2.3/AndroidManifest.xml:9:5-20
+MERGED from [com.badlogicgames.gdx-controllers:gdx-controllers-android:2.2.3] /Users/charlenechong/.gradle/caches/8.10.2/transforms/0fa68c644fc0d7c60df7aeba1eb910ab/transformed/gdx-controllers-android-2.2.3/AndroidManifest.xml:9:5-20
+	android:extractNativeLibs
+		INJECTED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml
+	android:backupAgent
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:35:3-46
+	android:label
+		INJECTED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:28:3-29
+	android:appCategory
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:30:3-29
+	android:resizeableActivity
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:32:3-36
+	android:icon
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:27:3-37
+	android:allowBackup
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:33:3-29
+	android:theme
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:29:3-56
+	android:isGame
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:31:3-24
+	android:fullBackupOnly
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:34:3-32
+manifest
+ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:2:1-51:12
+INJECTED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:2:1-51:12
+INJECTED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:2:1-51:12
+INJECTED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:2:1-51:12
+MERGED from [com.badlogicgames.gdx-controllers:gdx-controllers-android:2.2.3] /Users/charlenechong/.gradle/caches/8.10.2/transforms/0fa68c644fc0d7c60df7aeba1eb910ab/transformed/gdx-controllers-android-2.2.3/AndroidManifest.xml:2:1-11:12
+MERGED from [com.badlogicgames.gdx:gdx-backend-android:1.12.1] /Users/charlenechong/.gradle/caches/8.10.2/transforms/1b76f3f8b95b44b900ccdc35fabd4652/transformed/gdx-backend-android-1.12.1/AndroidManifest.xml:2:1-13:12
+	package
+		INJECTED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:3:2-48
+	xmlns:dist
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:6:2-58
+	android:versionCode
+		INJECTED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:2:11-69
+	android:targetSandboxVersion
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:5:2-34
+	android:installLocation
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:4:5-35
+dist:module
+ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:8:2-37
+	dist:instant
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:8:15-34
+uses-feature#0x00020000
+ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:9:2-50
+MERGED from [com.badlogicgames.gdx:gdx-backend-android:1.12.1] /Users/charlenechong/.gradle/caches/8.10.2/transforms/1b76f3f8b95b44b900ccdc35fabd4652/transformed/gdx-backend-android-1.12.1/AndroidManifest.xml:9:5-11:35
+MERGED from [com.badlogicgames.gdx:gdx-backend-android:1.12.1] /Users/charlenechong/.gradle/caches/8.10.2/transforms/1b76f3f8b95b44b900ccdc35fabd4652/transformed/gdx-backend-android-1.12.1/AndroidManifest.xml:9:5-11:35
+	android:glEsVersion
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:9:16-48
+	android:required
+		ADDED from [com.badlogicgames.gdx:gdx-backend-android:1.12.1] /Users/charlenechong/.gradle/caches/8.10.2/transforms/1b76f3f8b95b44b900ccdc35fabd4652/transformed/gdx-backend-android-1.12.1/AndroidManifest.xml:11:9-32
+uses-permission#android.permission.VIBRATE
+ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:11:2-63
+	android:name
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:11:19-60
+uses-permission#android.permission.INTERNET
+ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:12:2-64
+	android:name
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:12:19-61
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:13:2-76
+	android:name
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:13:19-73
+uses-sdk
+ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:16:2-72
+INJECTED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:16:2-72
+INJECTED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:16:2-72
+MERGED from [com.badlogicgames.gdx-controllers:gdx-controllers-android:2.2.3] /Users/charlenechong/.gradle/caches/8.10.2/transforms/0fa68c644fc0d7c60df7aeba1eb910ab/transformed/gdx-controllers-android-2.2.3/AndroidManifest.xml:5:5-7:41
+MERGED from [com.badlogicgames.gdx-controllers:gdx-controllers-android:2.2.3] /Users/charlenechong/.gradle/caches/8.10.2/transforms/0fa68c644fc0d7c60df7aeba1eb910ab/transformed/gdx-controllers-android-2.2.3/AndroidManifest.xml:5:5-7:41
+MERGED from [com.badlogicgames.gdx:gdx-backend-android:1.12.1] /Users/charlenechong/.gradle/caches/8.10.2/transforms/1b76f3f8b95b44b900ccdc35fabd4652/transformed/gdx-backend-android-1.12.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.badlogicgames.gdx:gdx-backend-android:1.12.1] /Users/charlenechong/.gradle/caches/8.10.2/transforms/1b76f3f8b95b44b900ccdc35fabd4652/transformed/gdx-backend-android-1.12.1/AndroidManifest.xml:5:5-7:41
+	tools:overrideLibrary
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:16:12-69
+	android:targetSdkVersion
+		INJECTED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml
+supports-screens
+ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:20:2-24:33
+	android:largeScreens
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:23:3-30
+	android:smallScreens
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:21:3-30
+	android:normalScreens
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:22:3-31
+	android:xlargeScreens
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:24:3-31
+activity#com.shatteredpixel.shatteredpixeldungeon.android.AndroidLauncher
+ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:36:3-45:14
+	android:screenOrientation
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:38:4-40
+	android:exported
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:40:4-27
+	android:configChanges
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:39:4-106
+	android:name
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:37:4-35
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:41:4-44:20
+action#android.intent.action.MAIN
+ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:42:5-57
+	android:name
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:42:13-54
+category#android.intent.category.LAUNCHER
+ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:43:5-65
+	android:name
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:43:15-62
+activity#com.shatteredpixel.shatteredpixeldungeon.android.AndroidMissingNativesHandler
+ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:46:3-48:14
+	android:name
+		ADDED from /Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:47:4-48

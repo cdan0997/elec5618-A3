@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.7.1" type="conditional_incidents">
+
+    <incident
+        id="UnusedAttribute"
+        severity="warning"
+        message="">
+        <fix-data minSdk="ffffffffffffe000" requiresApi="fffffffffe000000"/>
+        <location
+            file="${:android*debug*MAIN*sourceProvider*0*manifest*0}"
+            line="5"
+            column="2"
+            startOffset="192"
+            endLine="5"
+            endColumn="34"
+            endOffset="224"/>
+        <map>
+            <entry
+                name="message"
+                string="Attribute `targetSandboxVersion` is only used in API level 26 and higher (current min is %1$s)"/>
+            <api-levels id="minSdk"
+                value="ffffffffffffe000"/>
+            <api-levels id="requiresApi"
+                value="fffffffffe000000"/>
+        </map>
+    </incident>
+
+    <incident
+        id="UnusedAttribute"
+        severity="warning"
+        message="">
+        <fix-data minSdk="ffffffffffffe000" requiresApi="fffffffffe000000"/>
+        <location
+            file="${:android*debug*MAIN*sourceProvider*0*manifest*0}"
+            line="30"
+            column="3"
+            startOffset="1154"
+            endLine="30"
+            endColumn="29"
+            endOffset="1180"/>
+        <map>
+            <entry
+                name="message"
+                string="Attribute `appCategory` is only used in API level 26 and higher (current min is %1$s)"/>
+            <api-levels id="minSdk"
+                value="ffffffffffffe000"/>
+            <api-levels id="requiresApi"
+                value="fffffffffe000000"/>
+        </map>
+    </incident>
+
+    <incident
+        id="UnusedAttribute"
+        severity="warning"
+        message="">
+        <fix-data minSdk="ffffffffffffe000" requiresApi="fffffffffff00000"/>
+        <location
+            file="${:android*debug*MAIN*sourceProvider*0*manifest*0}"
+            line="31"
+            column="3"
+            startOffset="1183"
+            endLine="31"
+            endColumn="24"
+            endOffset="1204"/>
+        <map>
+            <entry
+                name="message"
+                string="Attribute `isGame` is only used in API level 21 and higher (current min is %1$s)"/>
+            <api-levels id="minSdk"
+                value="ffffffffffffe000"/>
+            <api-levels id="requiresApi"
+                value="fffffffffff00000"/>
+        </map>
+    </incident>
+
+    <incident
+        id="UnusedAttribute"
+        severity="warning"
+        message="">
+        <fix-data minSdk="ffffffffffffe000" requiresApi="ffffffffff800000"/>
+        <location
+            file="${:android*debug*MAIN*sourceProvider*0*manifest*0}"
+            line="32"
+            column="3"
+            startOffset="1207"
+            endLine="32"
+            endColumn="36"
+            endOffset="1240"/>
+        <map>
+            <entry
+                name="message"
+                string="Attribute `resizeableActivity` is only used in API level 24 and higher (current min is %1$s)"/>
+            <api-levels id="minSdk"
+                value="ffffffffffffe000"/>
+            <api-levels id="requiresApi"
+                value="ffffffffff800000"/>
+        </map>
+    </incident>
+
+    <incident
+        id="UnusedAttribute"
+        severity="warning"
+        message="">
+        <fix-data minSdk="ffffffffffffe000" requiresApi="fffffffffff00000"/>
+        <location
+            file="${:android*debug*MAIN*sourceProvider*0*manifest*0}"
+            line="34"
+            column="3"
+            startOffset="1272"
+            endLine="34"
+            endColumn="32"
+            endOffset="1301"/>
+        <map>
+            <entry
+                name="message"
+                string="Attribute `fullBackupOnly` is only used in API level 21 and higher (current min is %1$s)"/>
+            <api-levels id="minSdk"
+                value="ffffffffffffe000"/>
+            <api-levels id="requiresApi"
+                value="fffffffffff00000"/>
+        </map>
+    </incident>
+
+    <incident
+        id="ObsoleteSdkInt"
+        severity="warning"
+        message="Unnecessary; SDK_INT is always >= 14">
+        <fix-replace
+            description="Delete @TargetApi"
+            replacement=""
+            priority="0">
+            <range
+                file="${:android*debug*MAIN*sourceProvider*0*javaDir*0}/com/shatteredpixel/shatteredpixeldungeon/android/AndroidBackupHandler.java"
+                startOffset="1791"
+                endOffset="1805"/>
+        </fix-replace>
+        <location
+            file="${:android*debug*MAIN*sourceProvider*0*javaDir*0}/com/shatteredpixel/shatteredpixeldungeon/android/AndroidBackupHandler.java"
+            line="46"
+            column="2"
+            startOffset="1791"
+            endLine="46"
+            endColumn="16"
+            endOffset="1805"/>
+        <map>
+            <condition minGE="ffffffffffffe000"/>
+        </map>
+    </incident>
+
+</incidents>

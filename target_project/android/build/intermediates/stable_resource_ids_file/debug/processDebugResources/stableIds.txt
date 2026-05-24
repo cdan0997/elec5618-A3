@@ -1,0 +1,4 @@
+com.shatteredpixel.shatteredpixeldungeon.indev:mipmap/ic_launcher_monochrome = 0x7f010003
+com.shatteredpixel.shatteredpixeldungeon.indev:mipmap/ic_launcher_foreground = 0x7f010002
+com.shatteredpixel.shatteredpixeldungeon.indev:mipmap/ic_launcher_background = 0x7f010001
+com.shatteredpixel.shatteredpixeldungeon.indev:mipmap/ic_launcher = 0x7f010000

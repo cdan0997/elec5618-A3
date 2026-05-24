@@ -1,0 +1,98 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    xmlns:dist="http://schemas.android.com/apk/distribution"
+4    package="com.shatteredpixel.shatteredpixeldungeon.indev"
+5    android:installLocation="auto"
+6    android:targetSandboxVersion="2"
+7    android:versionCode="833"
+8    android:versionName="3.0.2-INDEV" > <!-- We perform a runtime check to ensure controllers are disabled on API 14 & 15 -->
+9    <uses-sdk
+9-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:16:2-72
+10        android:minSdkVersion="14"
+11        android:targetSdkVersion="34" />
+12
+13    <dist:module dist:instant="true" />
+13-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:8:2-37
+13-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:8:15-34
+14
+15    <uses-feature
+15-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:9:2-50
+16        android:glEsVersion="0x00020000"
+16-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:9:16-48
+17        android:required="true" />
+17-->[com.badlogicgames.gdx:gdx-backend-android:1.12.1] /Users/charlenechong/.gradle/caches/8.10.2/transforms/1b76f3f8b95b44b900ccdc35fabd4652/transformed/gdx-backend-android-1.12.1/AndroidManifest.xml:11:9-32
+18
+19    <uses-permission android:name="android.permission.VIBRATE" />
+19-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:11:2-63
+19-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:11:19-60
+20    <uses-permission android:name="android.permission.INTERNET" />
+20-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:12:2-64
+20-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:12:19-61
+21    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+21-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:13:2-76
+21-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:13:19-73
+22
+23    <!--
+24         Note that the game doesn't truly support small screen resolutions,
+25		it instead forces downscaling to work on these displays.
+26    -->
+27    <supports-screens
+27-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:20:2-24:33
+28        android:largeScreens="true"
+28-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:23:3-30
+29        android:normalScreens="true"
+29-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:22:3-31
+30        android:smallScreens="true"
+30-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:21:3-30
+31        android:xlargeScreens="true" />
+31-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:24:3-31
+32
+33    <application
+34        android:allowBackup="true"
+34-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:33:3-29
+35        android:appCategory="game"
+35-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:30:3-29
+36        android:backupAgent="com.shatteredpixel.shatteredpixeldungeon.android.AndroidBackupHandler"
+36-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:35:3-46
+37        android:debuggable="true"
+38        android:extractNativeLibs="true"
+39        android:fullBackupOnly="true"
+39-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:34:3-32
+40        android:icon="@mipmap/ic_launcher"
+40-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:27:3-37
+41        android:isGame="true"
+41-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:31:3-24
+42        android:label="Shattered Pixel Dungeon"
+42-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:28:3-29
+43        android:resizeableActivity="true"
+43-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:32:3-36
+44        android:theme="@android:style/Theme.Black.NoTitleBar" >
+44-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:29:3-56
+45        <activity
+45-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:36:3-45:14
+46            android:name="com.shatteredpixel.shatteredpixeldungeon.android.AndroidLauncher"
+46-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:37:4-35
+47            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+47-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:39:4-106
+48            android:exported="true"
+48-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:40:4-27
+49            android:screenOrientation="nosensor" >
+49-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:38:4-40
+50            <intent-filter>
+50-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:41:4-44:20
+51                <action android:name="android.intent.action.MAIN" />
+51-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:42:5-57
+51-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:42:13-54
+52
+53                <category android:name="android.intent.category.LAUNCHER" />
+53-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:43:5-65
+53-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:43:15-62
+54            </intent-filter>
+55        </activity>
+56        <activity android:name="com.shatteredpixel.shatteredpixeldungeon.android.AndroidMissingNativesHandler" >
+56-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:46:3-48:14
+56-->/Users/charlenechong/Downloads/elec5618-A3-1/target_project/android/src/main/AndroidManifest.xml:47:4-48
+57        </activity>
+58    </application>
+59
+60</manifest>
